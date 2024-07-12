@@ -95,7 +95,7 @@ namespace ConsoleApp1.Models
                     var floor = Floors.FirstOrDefault(f => f.FloorNumber == elevator.CurrentFloor);
                     if (floor != null)
                     {
-                        floor.ResetButtons(); // Reset buttons when elevator reaches the destination
+                        floor.ResetButtons(); 
                     }
                     elevator.ResetState();
                 }
