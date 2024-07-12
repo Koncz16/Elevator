@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ConsoleApp1.Models.Building">
+    <Position X="5.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAgEAAAAAAAAAAAABAAAAAAAAAkACAA=</HashCode>
+      <FileName>Models\Building.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Floors" />
+      <Property Name="Elevators" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ConsoleApp1.Models.Elevator">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAoAAABAEACACAAQAAAAgBAAAAACABAAAQAA=</HashCode>
+      <FileName>Models\Elevator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Direction" />
+      <Property Name="State" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConsoleApp1.Models.Floor">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAJAAAAAAAAAAAAFAAAAAAA=</HashCode>
+      <FileName>Models\Floor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ConsoleApp1.Enums.Direction">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Enums\Direction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ConsoleApp1.Enums.ElevatorState">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAwAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\ElevatorState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
