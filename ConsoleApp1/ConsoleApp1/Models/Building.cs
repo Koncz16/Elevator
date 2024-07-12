@@ -7,18 +7,19 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Models
 {
+    // Represents a building with multiple floors and elevators.
     public class Building
     {
-        public List<Elevator> Elevators { get; private set; }
-        public List<Floor> Floors { get; }
+        public List<Elevator> Elevators { get; private set; }   // List of elevators in the building.
+        public List<Floor> Floors { get; }                      // List of floors in the building.
 
 
         public Building(int numberOfFloors)
         {
             Elevators = new List<Elevator>
             {
-                new Elevator("Lift A", 0),   
-                new Elevator("Lift B", 6)    
+                new Elevator("Lift A", 0),    // Creates Elevator A starting at ground floor.
+                new Elevator("Lift B", 6)    // Creates Elevator B starting at top floor.
             };
             Floors = new List<Floor>();
             for (int i = 0; i < numberOfFloors; i++)
@@ -27,6 +28,7 @@ namespace ConsoleApp1.Models
             }
         }
 
+        // Calls an elevator to the specified floor in the given direction.
         public void CallElevator(int floorNumber, Direction direction)
         {
             var floor = Floors.FirstOrDefault(f => f.FloorNumber == floorNumber);
@@ -36,12 +38,13 @@ namespace ConsoleApp1.Models
                 return;
             }
 
-            floor.PressButton(direction);
-            Elevator closestElevator = GetClosestElevator(floorNumber);
+            floor.PressButton(direction);      
+            Elevator closestElevator = GetClosestElevator(floorNumber);     
 
             closestElevator.Called(floorNumber);
         }
 
+        // Selects a destination floor for the specified elevator index.
         public void SelectDestination(int elevatorIndex, int floorNumber)
         {
             var floor = Floors.FirstOrDefault(f => f.FloorNumber == floorNumber);
@@ -61,6 +64,7 @@ namespace ConsoleApp1.Models
             }
         }
 
+        // Define the closest elevator to floor.
         private Elevator GetClosestElevator(int floor)
         {
             Elevator elevatorA = Elevators[0];
@@ -79,6 +83,7 @@ namespace ConsoleApp1.Models
             }
         }
 
+        // Updates the state of each elevator in the building.
         public void UpdateElevators()
         {
             foreach (var elevator in Elevators)
@@ -101,7 +106,7 @@ namespace ConsoleApp1.Models
                 }
             }
         }
-
+        // Returns a string representation of the building's elevators.
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

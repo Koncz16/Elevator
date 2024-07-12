@@ -5,13 +5,14 @@ using ConsoleApp1.Models;
 internal class Program
 {
     private static void Main(string[] args)
-    {
+    { 
+        // Initializes a new building with 7 floors.
         Building building = new Building(7);
 
         Console.WriteLine("Initial building status:");
         Console.WriteLine(building);
 
-
+        // Main loop to handle user input and elevator operations.
         while (true)
         {
 
@@ -31,18 +32,19 @@ internal class Program
             int elevatorIndex = building.Elevators.FindIndex(e => e.State == ElevatorState.Called);
             if (elevatorIndex != -1)
             {
-
+                // Runs until the elevator reaches its destination floor.
                 while (building.Elevators[elevatorIndex].State != ElevatorState.DestinationReached)
                 {
                     building.UpdateElevators();
                     System.Threading.Thread.Sleep(1000);
                 }
-                {
-                    int selectedFloor = ReadFloorInput("\nPlease enter the floor where you want to go:");
+                
+                int selectedFloor = ReadFloorInput("\nPlease enter the floor where you want to go:");
 
-                    Console.WriteLine($"\nSelecting new destination floor {selectedFloor} for {building.Elevators[elevatorIndex].Name}...");
-                    building.SelectDestination(elevatorIndex, selectedFloor);
-                }
+                Console.WriteLine($"\nSelecting new destination floor {selectedFloor} for {building.Elevators[elevatorIndex].Name}...");
+                building.SelectDestination(elevatorIndex, selectedFloor);
+
+                // Runs until the elevator becomes inactive after reaching its destination.
 
                 while (building.Elevators[elevatorIndex].State != ElevatorState.Idle)
                 {
@@ -58,6 +60,7 @@ internal class Program
         }
     }
 
+    // Helper method to read and validate floor input from the user.
     public static int ReadFloorInput(string message)
     {
         int floor;
@@ -77,6 +80,7 @@ internal class Program
         return floor;
     }
 
+    // Helper method to read and validate direction input from the user.
     private static Direction ReadDirectionInput(string message)
     {
         while (true)
